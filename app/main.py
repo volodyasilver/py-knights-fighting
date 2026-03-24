@@ -8,21 +8,18 @@ def battle(knights_config: dict) -> dict:
     mordred = Knight(knights_config["mordred"])
     red_knight = Knight(knights_config["red_knight"])
 
-    # 1. Бій Lancelot vs Mordred
     lancelot_power = lancelot.power
     mordred_power = mordred.power
-    
+
     lancelot.take_damage(mordred_power)
     mordred.take_damage(lancelot_power)
 
-    # 2. Бій Arthur vs Red Knight
     arthur_power = arthur.power
     red_knight_power = red_knight.power
-    
+
     arthur.take_damage(red_knight_power)
     red_knight.take_damage(arthur_power)
 
-    # Повертаємо результати
     return {
         lancelot.name: lancelot.hp,
         arthur.name: arthur.hp,
