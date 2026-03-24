@@ -30,6 +30,6 @@ class Knight:
         actual_damage = opponent_power - self.protection
         if actual_damage > 0:
             self.hp -= actual_damage
-    
+
         if self.hp < 0:
             self.hp = 0
