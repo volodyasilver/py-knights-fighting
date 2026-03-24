@@ -6,27 +6,20 @@ class Knight:
         self.armour = config["armour"]
         self.weapon = config["weapon"]
         self.potion = config["potion"]
-        
         self.hp = 0
         self.power = 0
         self.protection = 0
-        
         self.prepare_for_battle()
 
     def prepare_for_battle(self) -> None:
-        # Початкові значення
         self.hp = self.base_hp
         self.power = self.base_power
         self.protection = 0
-
-        # Екіпірування зброї
         self.power += self.weapon["power"]
 
-        # Екіпірування броні
         for part in self.armour:
             self.protection += part["protection"]
 
-        # Застосування зілля
         if self.potion:
             effect = self.potion["effect"]
             self.hp += effect.get("hp", 0)
@@ -37,6 +30,6 @@ class Knight:
         actual_damage = opponent_power - self.protection
         if actual_damage > 0:
             self.hp -= actual_damage
-        
+    
         if self.hp < 0:
             self.hp = 0
